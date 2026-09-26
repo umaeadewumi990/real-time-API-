@@ -1,9 +1,296 @@
-"C:\Users\user\Downloads\index.html""C:\Users\user\Pictures\silque & slate_files\index-9185adcc0682ce39.mjs"
-"C:\Users\user\Downloads\index.html"
-"C:\Users\user\tutorial\web\index.html"
-"C:\Users\user\food\web\index.html"
-"C:\Users\user\fitness\web\index.html"
-"C:\Users\user\Documents\skydrop\skydrop\.dart_tool\widget_preview_scaffold\web\index.html"
-"C:\Users\user\Desktop\PRAC\index.html"
-"C:\Users\user\StudioProjects\test_app\web\index.html"
-"C:\Users\user\Documents\skydrop\skydrop\web\index.html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adewumi Project — Backend Engineer</title>
+<meta name="description" content="Adewumi Project builds REST/GraphQL APIs, database architecture, and authentication systems for startups and teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ECEEE7;
+    --panel:#F6F7F1;
+    --ink:#172018;
+    --muted:#54604F;
+    --line:#C9CDBA;
+    --teal:#2E6E5E;
+    --amber:#B97A32;
+    --term-bg:#12231C;
+    --term-key:#E3A458;
+    --term-str:#9FE0C0;
+    --term-punc:#7C9488;
+    --focus:#2E6E5E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* header */
+  header{
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-size:19px; font-weight:700; display:flex; align-items:baseline; gap:8px;}
+  .logo .dot{color:var(--teal); font-size:22px; line-height:0;}
+  nav{display:flex; gap:28px; align-items:center;}
+  nav a{font-size:15px; text-decoration:none; color:var(--muted); font-weight:500;}
+  nav a:hover{color:var(--ink);}
+  .btn{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:11px 20px;
+    border-radius:5px;
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid var(--ink);
+  }
+  .btn-solid{background:var(--ink); color:var(--bg);}
+  .btn-solid:hover{background:#2b3a2c;}
+  .btn-ghost{border-color:var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* hero */
+  .hero{padding:76px 0 88px;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero h1{font-size:44px; line-height:1.12;}
+  .hero p.lead{font-size:18px; color:var(--muted); max-width:46ch; margin:20px 0 30px;}
+  .hero .ctas{display:flex; gap:14px; flex-wrap:wrap;}
+
+  .term{
+    background:var(--term-bg);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 18px 40px -18px rgba(10,20,14,0.45);
+  }
+  .term-bar{
+    display:flex; gap:7px;
+    padding:13px 16px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .term-bar span{width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.18);}
+  .term-body{padding:22px 24px 26px; font-size:14.5px; line-height:1.7;}
+  .term-body .k{color:var(--term-key);}
+  .term-body .s{color:var(--term-str);}
+  .term-body .p{color:var(--term-punc);}
+
+  section{padding:64px 0;}
+  section h2{font-size:28px; margin-bottom:8px;}
+  section .section-sub{color:var(--muted); font-size:16px; max-width:56ch; margin:0 0 34px;}
+
+  /* services as endpoints */
+  .endpoint{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:22px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .endpoint:last-child{border-bottom:1px solid var(--line);}
+  .method{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:500;
+    font-size:13px;
+    padding:5px 9px;
+    border-radius:4px;
+    width:fit-content;
+    height:fit-content;
+  }
+  .m-get{background:rgba(46,110,94,0.13); color:var(--teal);}
+  .m-post{background:rgba(185,122,50,0.15); color:var(--amber);}
+  .m-put{background:rgba(23,32,24,0.08); color:var(--ink);}
+  .endpoint h3{font-family:'IBM Plex Mono',monospace; font-size:15px; font-weight:500; margin-bottom:6px;}
+  .endpoint p{margin:0; color:var(--muted); font-size:15.5px;}
+
+  /* work */
+  .work-item{
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .work-item:last-child{border-bottom:1px solid var(--line);}
+  .work-item h3{font-size:20px; margin-bottom:8px;}
+  .work-item p{margin:0 0 12px; color:var(--muted); max-width:64ch;}
+  .stack{display:flex; gap:8px; flex-wrap:wrap;}
+  .stack span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:4px 8px;
+  }
+
+  /* contact */
+  .contact-box{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:44px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .contact-box h2{font-size:26px; margin-bottom:10px;}
+  .contact-box p{margin:0; color:var(--muted);}
+  .email-link{font-family:'IBM Plex Mono',monospace; font-size:15px;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 0 40px;
+    color:var(--muted);
+    font-size:14px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:760px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero{padding:48px 0 56px;}
+    .hero h1{font-size:33px;}
+    nav a:not(.btn){display:none;}
+    .endpoint{grid-template-columns:1fr; gap:8px;}
+    .contact-box{flex-direction:column; align-items:flex-start; padding:30px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo"><span class="dot">●</span>Adewumi Project</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact" class="btn btn-solid">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>I build the backend that doesn't fall over.</h1>
+      <p class="lead">Backend engineer focused on APIs, databases, and authentication — the parts of a product that have to work correctly even when no one's watching.</p>
+      <div class="ctas">
+        <a href="#contact" class="btn btn-solid">Start a project</a>
+        <a href="#services" class="btn btn-ghost">See what I do</a>
+      </div>
+    </div>
+    <div class="term" role="img" aria-label="Sample API response describing Adewumi Project">
+      <div class="term-bar"><span></span><span></span><span></span></div>
+      <div class="term-body mono">
+<span class="p">{</span><br>
+&nbsp;&nbsp;<span class="k">"name"</span><span class="p">:</span> <span class="s">"Adewumi Project"</span><span class="p">,</span><br>
+&nbsp;&nbsp;<span class="k">"role"</span><span class="p">:</span> <span class="s">"Backend Engineer"</span><span class="p">,</span><br>
+&nbsp;&nbsp;<span class="k">"focus"</span><span class="p">:</span> <span class="p">[</span><span class="s">"APIs"</span><span class="p">,</span> <span class="s">"databases"</span><span class="p">,</span> <span class="s">"auth"</span><span class="p">],</span><br>
+&nbsp;&nbsp;<span class="k">"status"</span><span class="p">:</span> 200<span class="p">,</span><br>
+&nbsp;&nbsp;<span class="k">"available"</span><span class="p">:</span> true<br>
+<span class="p">}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>What I do</h2>
+    <p class="section-sub">The core of the work, laid out the way I actually think about it.</p>
+
+    <div class="endpoint">
+      <span class="method m-post">POST</span>
+      <div>
+        <h3>/api/design</h3>
+        <p>REST and GraphQL APIs designed around how the product is actually used, not just CRUD wrapped around a database.</p>
+      </div>
+    </div>
+    <div class="endpoint">
+      <span class="method m-get">GET</span>
+      <div>
+        <h3>/database/schema</h3>
+        <p>Schema design and query optimization for Postgres, MySQL, or MongoDB, so performance holds up as data grows.</p>
+      </div>
+    </div>
+    <div class="endpoint">
+      <span class="method m-put">PUT</span>
+      <div>
+        <h3>/auth/secure</h3>
+        <p>Authentication and authorization — JWT, OAuth2, role-based access — built in from the start, not bolted on later.</p>
+      </div>
+    </div>
+    <div class="endpoint">
+      <span class="method m-post">POST</span>
+      <div>
+        <h3>/deploy</h3>
+        <p>CI/CD pipelines and containerized deployments with Docker, so shipping is routine instead of a manual ritual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>What I build</h2>
+    <p class="section-sub">Representative examples of the kind of backend systems I take on — happy to walk through the technical decisions behind any of them.</p>
+
+    <div class="work-item">
+      <h3>Marketplace order API</h3>
+      <p>A REST API handling multi-vendor checkout, inventory sync, and payment webhooks for an e-commerce platform.</p>
+      <div class="stack"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Stripe API</span></div>
+    </div>
+    <div class="work-item">
+      <h3>Auth microservice</h3>
+      <p>A standalone service for issuing, refreshing, and revoking tokens across multiple client applications.</p>
+      <div class="stack"><span>Node.js</span><span>Redis</span><span>JWT</span><span>OAuth2</span></div>
+    </div>
+    <div class="work-item">
+      <h3>Real-time tracking API</h3>
+      <p>A WebSocket-based API streaming live location and status updates for a delivery and logistics use case.</p>
+      <div class="stack"><span>Node.js</span><span>Socket.io</span><span>MongoDB</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <h2>Have an API to build?</h2>
+        <p>Send a brief and I'll reply within a day.</p>
+      </div>
+      <a href="mailto:umaradewumi990@gmail.com" class="btn btn-solid email-link">umaradewumi990@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>Adewumi Project — Backend Engineer</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
